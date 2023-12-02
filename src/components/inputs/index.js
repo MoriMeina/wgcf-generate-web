@@ -106,14 +106,23 @@ const Inputs = ({sendData}) => {
             GenerateID();
             GenerateKey();
             setShowAlert(true);
+            setTimeout(() => {
+                setShowAlert(false);
+            }, 3000);
         } else if (!inputKey || !base64KeyRegex.test(inputKey) || !isBase64(inputKey)) {
             GenerateKey();
             setShowAlert(true);
+            setTimeout(() => {
+                setShowAlert(false);
+            }, 3000);
             console.warn('Key is Not Base64 format or Not a pairKey,re-generating')
         } else if (!inputInstallID || !installIdRegex.test(inputInstallID)) {
             GenerateID();
             console.warn('ID is not fill up for 11,or too much,re-generating')
             setShowAlert(true);
+            setTimeout(() => {
+                setShowAlert(false);
+            }, 3000);
         } else {
             RequestOutput();
         }
@@ -129,11 +138,11 @@ const Inputs = ({sendData}) => {
             locale,
         }
         sendData(data);
-        console.log('key:', inputKey)
-        console.log('install_id:', inputInstallID)
-        console.log('model:', model)
-        console.log('osType:', osType)
-        console.log('locale:', locale)
+        // console.log('key:', inputKey)
+        // console.log('install_id:', inputInstallID)
+        // console.log('model:', model)
+        // console.log('osType:', osType)
+        // console.log('locale:', locale)
     }
 
     return (
