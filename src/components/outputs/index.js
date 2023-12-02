@@ -74,7 +74,6 @@ const Outputs = ({data,Update}) =>{
             try {
                 const response = await axios.post(url, payload, {
                     headers: {
-                        'Access-Control-Allow-Origin' : '*',
                         'User-Agent': 'okhttp/3.12.1',
                         'Content-Type': 'application/json; charset=UTF-8',
                     },
