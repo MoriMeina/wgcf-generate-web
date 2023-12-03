@@ -25,8 +25,9 @@ jobs:
           cd ./build
 
       - name: Commit and push changes
+      - env:
+          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
         run: |
-            repo-token: ${{ secrets.GITHUB_TOKEN }}
             git config --global user.email "bilibilimyhx@gmail.com"
             git config --global user.name "MoriMeina"
             git checkout -b deploy
