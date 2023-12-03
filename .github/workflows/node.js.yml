@@ -34,5 +34,3 @@ jobs:
             git commit -m "Auto-generated build"
             git push origin deploy
 
-          # 使用个人访问令牌来推送更改
-          git push origin deploy:${{ secrets.ACCESS_TOKEN }}
