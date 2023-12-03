@@ -33,4 +33,4 @@ jobs:
           git commit -m "Auto-generated build"
 
           # 使用个人访问令牌来推送更改
-          git push https://github.com/MoriMeina/wgcf-generate-web.git deploy:${{ secrets.ACCESS_TOKEN }}
+          git push origin deploy:${{ secrets.ACCESS_TOKEN }}
