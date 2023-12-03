@@ -26,10 +26,13 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm install
-    - run: npm run build
-    - run: cd ./build
-    - run: git checkout -b deploy
-    - run: git add .
-    - run: git commit -m "Auto-generated build"
-    - run: git push origin deploy
+    - run: |
+        npm install
+        npm run build
+        cd ./build
+        git config --global user.email "bilibilimyhx@gmail.com"
+        git config --global user.name "MoriMeina"
+        git checkout -b deploy
+        git add .
+        git commit -m "Auto-generated build"
+        git push origin deploy
