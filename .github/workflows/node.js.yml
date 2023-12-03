@@ -27,7 +27,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install
-    - run: react-scripts build
+    - run: npm run build
     - run: cd ./build
     - run: git checkout -b deploy
     - run: git add .
