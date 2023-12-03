@@ -3,8 +3,8 @@ import './outputs.css'
 import TextArea from "antd/es/input/TextArea";
 import axios from 'axios'
 
-const Outputs = ({data,Update}) =>{
-    const [conf,setConf]=useState()
+const Outputs = ({data, Update}) => {
+    const [conf, setConf] = useState('')
 
     function genString(k) {
         const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
@@ -52,7 +52,7 @@ const Outputs = ({data,Update}) =>{
         //     return null;
         // }
         const reg = async () => {
-            const { inputKey, inputInstallID, model, osType, locale } = data;
+            const {inputKey, inputInstallID, model, osType, locale} = data;
 
             const url = 'https://wgcf-api.xzc-meina.top/v0a977/reg';
             const fcm_token = `${inputInstallID}:APA91b${genString(134)}`;
@@ -74,11 +74,25 @@ const Outputs = ({data,Update}) =>{
             try {
                 const response = await axios.post(url, payload, {
                     headers: {
-                        'User-Agent': 'okhttp/3.12.1',
                         'Content-Type': 'application/json; charset=UTF-8',
                     },
                 });
-                setConf(response.data)
+                const outputString = `
+[Interface]
+PrivateKey = ${inputKey}
+Address = ${response.data.config.interface.addresses.v4}
+Address = ${response.data.config.interface.addresses.v6}
+# ClientID = [${Array.from(atob(response.data.config.client_id)).map(char => char.charCodeAt(0))}]
+# Table = off
+ 
+[Peer]
+PublicKey = bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+# Endpoint = engage.cloudflareclient.com:2408
+Endpoint = 162.159.192.1:2408
+# Endpoint = [2606:4700:d0::a29f:c005]:2408
+AllowedIPs = 0.0.0.0/0
+AllowedIPs = ::/0`;
+                setConf(outputString)
                 console.log('Response:', response.data);
                 // 处理响应，例如更新状态等
             } catch (error) {
@@ -93,8 +107,7 @@ const Outputs = ({data,Update}) =>{
     }, [Update, data]);
 
 
-
-    return(
+    return (
         <div className="outputs">
             <h2 className="title">
                 Generated WGCF Profile For Wireguard
