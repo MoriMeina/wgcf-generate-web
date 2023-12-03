@@ -26,11 +26,13 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --global user.email "bilibilimyhx@gmail.com"
-          git config --global user.name "MoriMeina"
-          git checkout -b deploy
-          git add .
-          git commit -m "Auto-generated build"
+            repo-token: ${{ secrets.GITHUB_TOKEN }}
+            git config --global user.email "bilibilimyhx@gmail.com"
+            git config --global user.name "MoriMeina"
+            git checkout -b deploy
+            git add .
+            git commit -m "Auto-generated build"
+            git push origin deploy
 
           # 使用个人访问令牌来推送更改
           git push origin deploy:${{ secrets.ACCESS_TOKEN }}
