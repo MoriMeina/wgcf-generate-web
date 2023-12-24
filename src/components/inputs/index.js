@@ -6,6 +6,7 @@ import tweetnacl from 'tweetnacl'
 
 const Inputs = ({sendData}) => {
     const [inputKey, setInputKey] = useState('')
+    const [pubKey,setpubKey]=useState('')
     const [inputInstallID, setInputInstallID] = useState('')
     const [model, setModel] = useState('Xiaomi POCO X2')
     const [osType, setOsType] = useState('Android')
@@ -66,7 +67,8 @@ const Inputs = ({sendData}) => {
     const GenerateKey = () => {
         const PrivateKey = generatePrivateKey()
         const PublicKey = generatePublicKey(PrivateKey)
-        setInputKey(PublicKey)
+        setInputKey(PrivateKey)
+        setpubKey(PublicKey)
     }
     const GenerateID = () => {
         const RandomStr = genString(11)
@@ -132,6 +134,7 @@ const Inputs = ({sendData}) => {
     const RequestOutput = () => {
         const data={
             inputKey,
+            pubKey,
             inputInstallID,
             model,
             osType,

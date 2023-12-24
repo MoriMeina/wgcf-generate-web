@@ -52,7 +52,7 @@ const Outputs = ({data, Update}) => {
         //     return null;
         // }
         const reg = async () => {
-            const {inputKey, inputInstallID, model, osType, locale} = data;
+            const {inputKey,pubKey, inputInstallID, model, osType, locale} = data;
 
             const url = 'https://wgcf-api.xzc-meina.top/v0a977/reg';
             const fcm_token = `${inputInstallID}:APA91b${genString(134)}`;
@@ -60,7 +60,7 @@ const Outputs = ({data, Update}) => {
             console.log(currentTime)
 
             const payload = {
-                key: inputKey,
+                key: pubKey,
                 install_id: inputInstallID,
                 fcm_token: fcm_token,
                 referer: '1.1.1.1',
