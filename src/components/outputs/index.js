@@ -84,6 +84,7 @@ Address = ${response.data.config.interface.addresses.v4}
 Address = ${response.data.config.interface.addresses.v6}
 # ClientID = [${Array.from(atob(response.data.config.client_id)).map(char => char.charCodeAt(0))}]
 # Table = off
+DNS = 1.1.1.1,8.8.8.8
  
 [Peer]
 PublicKey = bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
