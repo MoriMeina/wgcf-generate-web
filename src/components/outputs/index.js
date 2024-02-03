@@ -82,14 +82,14 @@ const Outputs = ({data, Update}) => {
 PrivateKey = ${inputKey}
 Address = ${response.data.config.interface.addresses.v4}
 Address = ${response.data.config.interface.addresses.v6}
+DNS = 1.1.1.1,8.8.8.8
 # ClientID = [${Array.from(atob(response.data.config.client_id)).map(char => char.charCodeAt(0))}]
 # Table = off
-DNS = 1.1.1.1,8.8.8.8
  
 [Peer]
 PublicKey = bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
 # Endpoint = engage.cloudflareclient.com:2408
-Endpoint = 162.159.192.1:2408
+Endpoint = 162.159.193.1:2408
 # Endpoint = [2606:4700:d0::a29f:c005]:2408
 AllowedIPs = 0.0.0.0/0
 AllowedIPs = ::/0`;
